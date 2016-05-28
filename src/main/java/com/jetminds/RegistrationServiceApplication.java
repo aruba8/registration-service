@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Erik Khalimov
  */
 @SpringBootApplication
-public class Application {
+public class RegistrationServiceApplication {
     /**
      * Application entry point.
      *
@@ -18,6 +18,6 @@ public class Application {
      *
      */
     public static void main(final String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(RegistrationServiceApplication.class, args);
     }
 }
