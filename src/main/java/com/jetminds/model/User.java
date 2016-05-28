@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
+import javax.validation.constraints.NotNull;
 
 /**
  * User entity.
@@ -26,12 +27,14 @@ public class User {
     /**
      * User email column.
      */
+    @NotNull
     @Column(name = "email")
     private String email;
 
     /**
      * User password column.
      */
+    @NotNull
     @Column(name = "password")
     private String password;
 
@@ -42,9 +45,29 @@ public class User {
     private Boolean isConfirmed;
 
     /**
+     * Constructor by default.
+     *
+     */
+    public User() {
+    }
+
+    /**
+     * Crete user constructor.
+     *
+     * @param email
+     *  email
+     * @param password
+     *  password
+     */
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
+    /**
      * getter for userId.
-     * @return
-     *      id
+     *
+     * @return id
      */
     public Long getUserId() {
         return userId;
@@ -52,8 +75,8 @@ public class User {
 
     /**
      * setter for user id.
-     * @param userId
-     *  user id
+     *
+     * @param userId user id
      */
     public void setUserId(Long userId) {
         this.userId = userId;
@@ -61,8 +84,8 @@ public class User {
 
     /**
      * getter email.
-     * @return
-     *  email
+     *
+     * @return email
      */
     public String getEmail() {
         return email;
@@ -70,8 +93,8 @@ public class User {
 
     /**
      * setter email.
-     * @param email
-     *  email
+     *
+     * @param email email
      */
     public void setEmail(String email) {
         this.email = email;
@@ -79,8 +102,8 @@ public class User {
 
     /**
      * getter password.
-     * @return
-     *  password
+     *
+     * @return password
      */
     public String getPassword() {
         return password;
@@ -88,8 +111,8 @@ public class User {
 
     /**
      * setter password.
-     * @param password
-     *  password
+     *
+     * @param password password
      */
     public void setPassword(String password) {
         this.password = password;
@@ -97,8 +120,8 @@ public class User {
 
     /**
      * getter isConfirmed.
-     * @return
-     *  isConfirmed
+     *
+     * @return isConfirmed
      */
     public Boolean getIsConfirmed() {
         return isConfirmed;
@@ -106,8 +129,8 @@ public class User {
 
     /**
      * setter isConfirmed.
-     * @param isConfirmed
-     *  isConfirmed
+     *
+     * @param isConfirmed isConfirmed
      */
     public void setIsConfirmed(Boolean isConfirmed) {
         this.isConfirmed = isConfirmed;

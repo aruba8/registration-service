@@ -13,8 +13,8 @@ public class RegisterController {
 
     /**
      * Render register page.
-     * @return
-     *  page
+     *
+     * @return page
      */
     @RequestMapping("/registration")
     public String registerPage() {
