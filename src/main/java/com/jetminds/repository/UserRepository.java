@@ -21,4 +21,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
      *  found user
      */
     User findByEmail(String email);
+    
+    User findByUuid(String uuid);
 }

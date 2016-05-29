@@ -48,6 +48,12 @@ public class User {
     private Boolean isConfirmed;
 
     /**
+     * User's uuid generated upon creating.
+     */
+    @Column(name = "uuid")
+    private String uuid;
+
+    /**
      * Constructor by default.
      *
      */
@@ -138,5 +144,23 @@ public class User {
      */
     public void setIsConfirmed(Boolean isConfirmed) {
         this.isConfirmed = isConfirmed;
+    }
+
+    /**
+     * getter uuid.
+     * @return
+     *  uuid
+     */
+    public String getUuid() {
+        return uuid;
+    }
+
+    /**
+     * setter uuid.
+     * @param uuid
+     *  uuid
+     */
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 }
