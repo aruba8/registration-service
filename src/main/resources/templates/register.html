@@ -1,10 +1,82 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Registration service</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link href="../css/skeleton.css" rel="stylesheet" media="screen"/>
+    <link href="../css/normalize.css" rel="stylesheet" media="screen"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
-<p th:text="'Hello, ' + '!'" />
+<div id="userForm" class="container">
+
+    <form class="fv-form-horizontal">
+        <div class="eight columns">
+            <h3>Registration</h3>
+
+            <div class="row">
+                <label class="two columns" for="emailInput">Email</label>
+
+                <div class="six columns">
+                    <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="emailInput"/>
+                    <span id="error" style="color: red; display: none">This email already taken!</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="two columns" for="passwordInput">Password</label>
+
+                <div class="six columns">
+                    <input class="u-full-width" type="password" placeholder="" id="passwordInput"/>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="two columns">
+                    <span class="label-body"></span>
+                </label>
+
+                <div class="six columns">
+                    <input class="button-primary" type="submit" value="Create my account" id="submitButton"/>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="successMessage" class="container" style="display: none">
+
+    <h2>Success! Check your mail!</h2>
+
+</div>
+<script>
+    $(document).ready(function () {
+        $("form").submit(function (event) {
+            var formData = {
+                'email': $("#emailInput").val(),
+                'password': $("#passwordInput").val()
+            };
+            $.ajax({
+                type: 'POST',
+                url: '/registration',
+                data: formData
+            }).done(function(data){
+                if(data == "error"){
+                    $("span#error").show();
+                } else if(data == "success"){
+                    $("#userForm").hide();
+                    $("#successMessage").show();
+                }
+            });
+
+            event.preventDefault();
+
+
+        });
+
+    });
+</script>
 </body>
 </html>

@@ -1,5 +1,7 @@
 package com.jetminds.model;
 
+import org.hibernate.validator.constraints.Email;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -28,7 +30,8 @@ public class User {
      * User email column.
      */
     @NotNull
-    @Column(name = "email")
+    @Email
+    @Column(name = "email", unique = true)
     private String email;
 
     /**
@@ -62,6 +65,7 @@ public class User {
     public User(String email, String password) {
         this.email = email;
         this.password = password;
+        this.isConfirmed = false;
     }
 
     /**
