@@ -21,6 +21,14 @@ public interface UserRepository extends CrudRepository<User, Long> {
      *  found user
      */
     User findByEmail(String email);
-    
+
+    /**
+     * Query to find user by uuid.
+     *
+     * @param uuid - uuid
+     *
+     * @return
+     *  found user
+     */
     User findByUuid(String uuid);
 }
