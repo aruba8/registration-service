@@ -31,9 +31,12 @@ public class UserRepositoryTest {
     @Before
     public void setUp() throws Exception {
         userUuid = UUID.randomUUID();
-        User firstUser = new User("first@email.com", "testpasswordfirst");
+        User firstUser = new User();
+        firstUser.setEmail("first@email.com");
+        firstUser.setPassword("testpasswordfirst");
         User secondUser = new User("second@email.com", "testpasswordsecond");
         firstUser.setUuid(userUuid.toString());
+        firstUser.setIsConfirmed(false);
         userRepository.deleteAll();
         userRepository.save(firstUser);
         userRepository.save(secondUser);
@@ -47,6 +50,8 @@ public class UserRepositoryTest {
         assertEquals("second@email.com", secondFoundUser.getEmail());
         assertEquals("testpasswordfirst", firstFoundUser.getPassword());
         assertEquals("testpasswordsecond", secondFoundUser.getPassword());
+        assertEquals(false, firstFoundUser.getIsConfirmed());
+        assertEquals(userUuid.toString(), firstFoundUser.getUuid());
     }
 
     @Test
