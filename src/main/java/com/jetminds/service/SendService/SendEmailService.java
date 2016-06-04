@@ -1,8 +1,8 @@
-package com.jetminds.service.SendEmail;
+package com.jetminds.service.SendService;
 
 import java.util.Map;
 
-public interface SendEmail {
+public interface SendEmailService {
 
     void receiveMessage(Map<String, String> receiveMessage);
 }
