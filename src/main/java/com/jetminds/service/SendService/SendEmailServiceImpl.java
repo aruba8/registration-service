@@ -31,11 +31,11 @@ public class SendEmailServiceImpl implements SendEmailService {
      */
     @JmsListener(destination = QueueConfig.NAME_QUEUE)
     public void receiveMessage(Map<String, String> receiveMessage) {
-        logger.debug("Receive message");
+        logger.debug("Receive message with queue to failed");
         sendEmail(receiveMessage);
     }
 
-    private void sendEmail(Map<String, String> receiveMessage) {
+    public boolean sendEmail(Map<String, String> receiveMessage) {
 
         /*
         the sender's e-mail
@@ -58,8 +58,10 @@ public class SendEmailServiceImpl implements SendEmailService {
             messageHelper.setFrom(emailFrom);
             mailSender.send(emailMessage);
             logger.debug("Send email" + emailUser);
+            return true;
         } catch (MessagingException e) {
-            logger.debug("Error send email" + e.toString());
+            logger.debug("Error send email " + e.toString());
+            return false;
         }
     }
 }
