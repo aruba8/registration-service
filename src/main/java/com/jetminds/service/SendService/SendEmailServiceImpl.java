@@ -10,24 +10,30 @@ import org.springframework.stereotype.Service;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 
-import javax.mail.*;
+import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.util.Map;
 
+/**
+ * Service send email.
+ */
 @Service
 public class SendEmailServiceImpl implements SendEmailService {
 
-    /*
-    Logger
+    /**
+     * Logger.
      */
     private Logger logger = LoggerFactory.getLogger(SendEmailServiceImpl.class);
 
+    /**
+     * JavaMailSenderImpl.
+     */
     @Autowired
     private JavaMailSenderImpl mailSender;
 
-    /*
-     *listener queue
-     *@param received message
+    /**
+     * Listener queue.
+     *@param receiveMessage message received.
      */
     @JmsListener(destination = QueueConfig.NAME_QUEUE)
     public void receiveMessage(Map<String, String> receiveMessage) {
@@ -35,16 +41,21 @@ public class SendEmailServiceImpl implements SendEmailService {
         sendEmail(receiveMessage);
     }
 
+    /**
+     * Method for send email.
+     * @param receiveMessage message received.
+     * @return flag for test.
+     * @exception MessagingException
+     */
     public boolean sendEmail(Map<String, String> receiveMessage) {
 
-        /*
-         *the sender's e-mail
+        /**
+         * The sender's e-mail.
+         *
+         * !! Will set username and password SMTP in application.properties.
+         * And here will set emailFrom (username = emailFrom).
          */
-        /*
-         *!! Will set username and password SMTP in application.properties.
-         *And here will set emailFrom (username = emailFrom)
-         */
-        String emailFrom = "";
+        String emailFrom = "maksimp86@mail.ru";
         BodyEmail bodyEmail = new BodyEmail();
 
         String passwordUser = receiveMessage.get("password");
