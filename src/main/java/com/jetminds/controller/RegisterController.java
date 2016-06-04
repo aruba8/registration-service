@@ -2,7 +2,7 @@ package com.jetminds.controller;
 
 import com.jetminds.model.User;
 import com.jetminds.repository.UserRepository;
-import com.jetminds.service.ConfirmService;
+import com.jetminds.service.ConfirmService.ConfirmService;
 import com.jetminds.service.SendMessageService.SendMessageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.jms.JMSException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -56,6 +59,15 @@ public class RegisterController {
             userRepository.save(user);
         } catch (Exception ex) {
             return "error";
+        }
+        try {
+            Map<String, String> message = new HashMap<>();
+            message.put("email", user.getEmail());
+            message.put("password", user.getPassword());
+            message.put("code", user.getUuid());
+            sendMessageToBroker.send(message);
+        } catch (JMSException e) {
+            logger.debug("JMS error" + e.toString());
         }
         return "success";
     }
