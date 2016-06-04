@@ -99,9 +99,9 @@ public class RegisterController {
     @Autowired
     private ConfirmService confirmService;
 
-    /*
-     Service to send message
-    */
+    /**
+     * Service to send message.
+     */
     @Autowired
     private SendMessageService sendMessageToBroker;
 
