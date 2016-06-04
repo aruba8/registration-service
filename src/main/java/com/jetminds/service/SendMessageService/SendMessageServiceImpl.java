@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
+import javax.jms.JMSException;
 import javax.jms.Queue;
 import java.util.Map;
 
@@ -37,7 +38,7 @@ public class SendMessageServiceImpl implements SendMessageService {
      * @param message send to broker
      */
     @Override
-    public void send(Map<String, String> message) {
+    public void send(Map<String, String> message) throws JMSException{
         jmsTemplate.convertAndSend(queue, message);
         logger.debug("Send message");
     }
