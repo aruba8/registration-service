@@ -1,4 +1,4 @@
-package com.jetminds.service.SendEmail;
+package com.jetminds.service.SendService;
 
 import com.jetminds.config.QueueConfig;
 import com.jetminds.model.BodyEmail;
@@ -15,12 +15,12 @@ import javax.mail.internet.MimeMessage;
 import java.util.Map;
 
 @Service
-public class SendEmailImpl implements SendEmail{
+public class SendEmailServiceImpl implements SendEmailService {
 
     /*
     Logger
      */
-    private Logger logger = LoggerFactory.getLogger(SendEmailImpl.class);
+    private Logger logger = LoggerFactory.getLogger(SendEmailServiceImpl.class);
 
     @Autowired
     private JavaMailSenderImpl mailSender;
