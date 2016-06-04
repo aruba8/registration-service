@@ -1,9 +1,9 @@
-package com.jetminds.service.SendMessageToBroker;
+package com.jetminds.service.SendMessageService;
 
 import javax.jms.JMSException;
 import java.util.Map;
 
-public interface SendMessageToBroker {
+public interface SendMessageService {
 
     void send(Map<String, String> o) throws JMSException;
 }
