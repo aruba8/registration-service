@@ -52,7 +52,7 @@ public class SendEmailServiceImpl implements SendEmailService {
         /**
          * The sender's e-mail.
          *
-         * !! Will set username and password SMTP in application.properties.
+         * !! Set will username and password SMTP in application.properties.
          * And here will set emailFrom (username = emailFrom).
          */
         String emailFrom = "maksimp86@mail.ru";
