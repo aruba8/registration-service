@@ -4,7 +4,7 @@
     <groupId>com.jetminds</groupId>
     <artifactId>registration-service</artifactId>
     <packaging>war</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <name>Registration Service</name>
 
