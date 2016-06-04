@@ -5,6 +5,7 @@ import com.jetminds.model.BodyEmail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Service;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
@@ -32,6 +33,14 @@ public class SendEmailServiceImpl implements SendEmailService {
     private JavaMailSenderImpl mailSender;
 
     /**
+     * The sender's e-mail.
+     *
+     * !! Set will username, emailFrom and password SMTP in application.properties.
+     */
+    @Value("${emailFrom}")
+    private String emailFrom;
+
+    /**
      * Listener queue.
      *@param receiveMessage message received.
      */
@@ -49,13 +58,6 @@ public class SendEmailServiceImpl implements SendEmailService {
      */
     public boolean sendEmail(Map<String, String> receiveMessage) {
 
-        /**
-         * The sender's e-mail.
-         *
-         * !! Set will username and password SMTP in application.properties.
-         * And here will set emailFrom (username = emailFrom).
-         */
-        String emailFrom = "";
         BodyEmail bodyEmail = new BodyEmail();
 
         String passwordUser = receiveMessage.get("password");
