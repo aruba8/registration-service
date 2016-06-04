@@ -1,4 +1,4 @@
-package com.jetminds.service.SendMessageToBroker;
+package com.jetminds.service.SendMessageService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,12 +13,12 @@ import java.util.Map;
 sender message to broker
  */
 @Service
-public class SendMessageToBrokerImpl implements SendMessageToBroker {
+public class SendMessageServiceImpl implements SendMessageService {
 
     /*
     logger
      */
-    private Logger logger = LoggerFactory.getLogger(SendMessageToBrokerImpl.class);
+    private Logger logger = LoggerFactory.getLogger(SendMessageServiceImpl.class);
 
     /*
     jmstemlate
