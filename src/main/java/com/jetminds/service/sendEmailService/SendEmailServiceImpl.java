@@ -55,7 +55,7 @@ public class SendEmailServiceImpl implements SendEmailService {
          * !! Set will username and password SMTP in application.properties.
          * And here will set emailFrom (username = emailFrom).
          */
-        String emailFrom = "maksimp86@mail.ru";
+        String emailFrom = "";
         BodyEmail bodyEmail = new BodyEmail();
 
         String passwordUser = receiveMessage.get("password");
