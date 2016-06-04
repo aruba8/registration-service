@@ -11,6 +11,7 @@ public interface SendMessageService {
     /**
      * Send message.
      * @param message send to broker
+     * @exception JMSException
      */
     void send(Map<String, String> message) throws JMSException;
 }
