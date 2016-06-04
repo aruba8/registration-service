@@ -1,4 +1,4 @@
-package com.jetminds.service;
+package com.jetminds.service.ConfirmService;
 
 import com.jetminds.model.User;
 import com.jetminds.repository.UserRepository;
