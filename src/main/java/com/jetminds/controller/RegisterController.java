@@ -65,7 +65,11 @@ public class RegisterController {
         message.put("email", user.getEmail());
         message.put("password", user.getPassword());
         message.put("code", user.getUuid());
-        sendMessageToBroker.send(message);
+        try {
+            sendMessageToBroker.send(message);
+        } catch (JMSException e) {
+            logger.debug("JMS error" + e.toString());
+        }
 
         return "success";
     }
