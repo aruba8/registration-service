@@ -36,6 +36,7 @@ public class SendMessageServiceImpl implements SendMessageService {
     /**
      * Send message to queue.
      * @param message send to broker
+     * @exception Exception
      */
     @Override
     public void send(Map<String, String> message) throws JMSException{
