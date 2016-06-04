@@ -60,15 +60,13 @@ public class RegisterController {
         } catch (Exception ex) {
             return "error";
         }
-        try {
-            Map<String, String> message = new HashMap<>();
-            message.put("email", user.getEmail());
-            message.put("password", user.getPassword());
-            message.put("code", user.getUuid());
-            sendMessageToBroker.send(message);
-        } catch (JMSException e) {
-            logger.debug("JMS error" + e.toString());
-        }
+
+        Map<String, String> message = new HashMap<>();
+        message.put("email", user.getEmail());
+        message.put("password", user.getPassword());
+        message.put("code", user.getUuid());
+        sendMessageToBroker.send(message);
+
         return "success";
     }
 
