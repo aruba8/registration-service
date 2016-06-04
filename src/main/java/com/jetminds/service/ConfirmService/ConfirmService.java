@@ -1,4 +1,4 @@
-package com.jetminds.service.ConfirmService;
+package com.jetminds.service.confirmService;
 
 
 /**

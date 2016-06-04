@@ -1,4 +1,4 @@
-package com.jetminds.service;
+package com.jetminds.service.sendEmailService;
 
 import java.util.Map;
 

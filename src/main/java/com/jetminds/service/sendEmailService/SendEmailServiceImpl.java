@@ -1,4 +1,4 @@
-package com.jetminds.service;
+package com.jetminds.service.sendEmailService;
 
 import com.jetminds.config.QueueConfig;
 import com.jetminds.model.BodyEmail;
