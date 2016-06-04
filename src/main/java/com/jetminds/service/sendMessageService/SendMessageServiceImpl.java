@@ -1,4 +1,4 @@
-package com.jetminds.service.messageSendService;
+package com.jetminds.service.sendMessageService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
