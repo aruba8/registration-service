@@ -72,7 +72,6 @@ public class RegisterController {
         return "success";
     }
 
-
     /**
      * Confirm user.
      *
