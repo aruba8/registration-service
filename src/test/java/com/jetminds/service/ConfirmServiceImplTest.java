@@ -3,6 +3,7 @@ package com.jetminds.service;
 import com.jetminds.RegistrationServiceApplication;
 import com.jetminds.model.User;
 import com.jetminds.repository.UserRepository;
+import com.jetminds.service.confirmService.ConfirmService;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
