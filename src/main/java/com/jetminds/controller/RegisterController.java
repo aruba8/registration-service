@@ -2,8 +2,8 @@ package com.jetminds.controller;
 
 import com.jetminds.model.User;
 import com.jetminds.repository.UserRepository;
-import com.jetminds.service.ConfirmService.ConfirmService;
-import com.jetminds.service.SendMessageService.SendMessageService;
+import com.jetminds.service.confirmService.ConfirmService;
+import com.jetminds.service.sendMessageService.SendMessageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,11 +65,7 @@ public class RegisterController {
         message.put("email", user.getEmail());
         message.put("password", user.getPassword());
         message.put("code", user.getUuid());
-        try {
-            sendMessageToBroker.send(message);
-        } catch (JMSException e) {
-            logger.debug("JMS error" + e.toString());
-        }
+        sendMessageToBroker.send(message);
 
         return "success";
     }
