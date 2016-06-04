@@ -3,7 +3,7 @@ package com.jetminds.controller;
 import com.jetminds.model.User;
 import com.jetminds.repository.UserRepository;
 import com.jetminds.service.ConfirmService;
-import com.jetminds.service.SendMessageToBroker.SendMessageToBroker;
+import com.jetminds.service.SendMessageService.SendMessageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,6 +92,6 @@ public class RegisterController {
      Service to send message
     */
     @Autowired
-    private SendMessageToBroker sendMessageToBroker;
+    private SendMessageService sendMessageToBroker;
 
 }
