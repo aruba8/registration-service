@@ -26,8 +26,8 @@ public class SendEmailServiceImpl implements SendEmailService {
     private JavaMailSenderImpl mailSender;
 
     /*
-    listener queue
-    @param received message
+     *listener queue
+     *@param received message
      */
     @JmsListener(destination = QueueConfig.NAME_QUEUE)
     public void receiveMessage(Map<String, String> receiveMessage) {
@@ -38,13 +38,13 @@ public class SendEmailServiceImpl implements SendEmailService {
     public boolean sendEmail(Map<String, String> receiveMessage) {
 
         /*
-        the sender's e-mail
+         *the sender's e-mail
          */
         /*
-        !! Will set username and password SMTP in application.properties.
-        And here will set emailFrom (username = emailFrom)
+         *!! Will set username and password SMTP in application.properties.
+         *And here will set emailFrom (username = emailFrom)
          */
-        String emailFrom = "";
+        String emailFrom = "maksimp86@mail.ru";
         BodyEmail bodyEmail = new BodyEmail();
 
         String passwordUser = receiveMessage.get("password");
