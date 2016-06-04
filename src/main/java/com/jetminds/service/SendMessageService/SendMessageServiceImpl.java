@@ -9,31 +9,31 @@ import org.springframework.stereotype.Service;
 import javax.jms.Queue;
 import java.util.Map;
 
-/*
-sender message to broker
+/**
+ * Sender message to broker.
  */
 @Service
 public class SendMessageServiceImpl implements SendMessageService {
 
-    /*
-    logger
+    /**
+     * Logger.
      */
     private Logger logger = LoggerFactory.getLogger(SendMessageServiceImpl.class);
 
-    /*
-    jmstemlate
+    /**
+     * Jmstemlate.
      */
     @Autowired
     private JmsTemplate jmsTemplate;
 
-    /*
-    queue
+    /**
+     * Queue.
      */
     @Autowired
     private Queue queue;
 
-    /*
-    Send message to queue
+    /**
+     * Send message to queue.
      */
     @Override
     public void send(Map<String, String> message) {
