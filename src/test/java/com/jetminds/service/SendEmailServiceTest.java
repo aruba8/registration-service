@@ -1,8 +1,7 @@
 package com.jetminds.service;
 
 import com.jetminds.RegistrationServiceApplication;
-import com.jetminds.service.SendMessageService.SendMessageServiceImpl;
-import com.jetminds.service.SendService.SendEmailServiceImpl;
+import com.jetminds.service.sendEmailService.SendEmailServiceImpl;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,7 +31,7 @@ public class SendEmailServiceTest {
     private Queue queue;
 
     /*
-    Test HashMap for SendMessageTest
+     Test HashMap for SendMessageTest
      */
     private Map<String, String> blobMassage;
 
