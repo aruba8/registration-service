@@ -37,8 +37,8 @@ public class ConfirmServiceImplTest {
 
     @Before
     public void setUp() throws Exception{
-        testUser1 = new User("test@email.ca", "password");
-        testUser2 = new User("test2@email.ca", "password2");
+        testUser1 = new User("test@email.ca", "passwo33rd!");
+        testUser2 = new User("test2@email.ca", "passw33ord2!");
         uuid1 = UUID.randomUUID();
         uuid2 = UUID.randomUUID();
         testUser1.setUuid(uuid1.toString());

@@ -9,6 +9,7 @@ import javax.persistence.Table;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 /**
  * User entity.
@@ -38,6 +39,7 @@ public class User {
      * User password column.
      */
     @NotNull
+    @Pattern(regexp = "(?=(.*\\d){2})(.*)(!+)")
     @Column(name = "password")
     private String password;
 

@@ -21,6 +21,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.xpath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 
 /**
@@ -33,6 +34,8 @@ public class RegisterControllerTest {
 
     private MockMvc mockMvc;
     private String email = "test@email.com";
+    private User user;
+    private User newUser;
 
     @Autowired
     private WebApplicationContext wac;
@@ -43,12 +46,13 @@ public class RegisterControllerTest {
     @Before
     public void setUp() throws Exception {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
-        User user = new User(email, "password");
+        user = new User(email, "passwor55d!");
         UUID uuid = UUID.randomUUID();
         user.setUuid(uuid.toString());
         user.setIsConfirmed(false);
         userRepository.deleteAll();
         userRepository.save(user);
+        newUser = new User("test2@email.com", "qwe32qwe!");
     }
 
     @After
@@ -64,7 +68,11 @@ public class RegisterControllerTest {
 
     @Test
     public void testAddUser() throws Exception {
-        this.mockMvc.perform(post("/registration")).andExpect(status().isOk());
+        this.mockMvc.perform(post("/registration")
+                .param("email", "test2@email.com")
+                .param("password", "qwe32qwe!"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("success"));
 
     }
 

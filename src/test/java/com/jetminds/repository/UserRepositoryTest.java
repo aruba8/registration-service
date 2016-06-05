@@ -33,8 +33,8 @@ public class UserRepositoryTest {
         userUuid = UUID.randomUUID();
         User firstUser = new User();
         firstUser.setEmail("first@email.com");
-        firstUser.setPassword("testpasswordfirst");
-        User secondUser = new User("second@email.com", "testpasswordsecond");
+        firstUser.setPassword("testpasswordf22i!");
+        User secondUser = new User("second@email.com", "testp24asswordse!");
         firstUser.setUuid(userUuid.toString());
         firstUser.setIsConfirmed(false);
         userRepository.deleteAll();
@@ -48,8 +48,8 @@ public class UserRepositoryTest {
         User secondFoundUser = userRepository.findByEmail("second@email.com");
         assertEquals("first@email.com", firstFoundUser.getEmail());
         assertEquals("second@email.com", secondFoundUser.getEmail());
-        assertEquals("testpasswordfirst", firstFoundUser.getPassword());
-        assertEquals("testpasswordsecond", secondFoundUser.getPassword());
+        assertEquals("testpasswordf22i!", firstFoundUser.getPassword());
+        assertEquals("testp24asswordse!", secondFoundUser.getPassword());
         assertEquals(false, firstFoundUser.getIsConfirmed());
         assertEquals(userUuid.toString(), firstFoundUser.getUuid());
     }
