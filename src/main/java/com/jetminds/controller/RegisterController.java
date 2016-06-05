@@ -2,8 +2,8 @@ package com.jetminds.controller;
 
 import com.jetminds.model.User;
 import com.jetminds.repository.UserRepository;
-import com.jetminds.service.confirmService.ConfirmService;
-import com.jetminds.service.sendMessageService.SendMessageService;
+import com.jetminds.service.ConfirmService;
+import com.jetminds.service.SendMessageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,6 @@
 package com.jetminds.service;
 
 import com.jetminds.RegistrationServiceApplication;
-import com.jetminds.service.sendEmailService.SendEmailServiceImpl;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
