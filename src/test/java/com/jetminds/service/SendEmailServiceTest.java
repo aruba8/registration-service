@@ -1,10 +1,11 @@
 package com.jetminds.service;
 
 import com.jetminds.RegistrationServiceApplication;
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.jms.core.JmsTemplate;
@@ -20,8 +21,7 @@ import java.util.Map;
 @WebAppConfiguration
 public class SendEmailServiceTest {
 
-    @Autowired
-    private SendEmailServiceImpl sendEmailService;
+    private SendEmailService sendEmailService = Mockito.mock(SendEmailService.class);
 
     @Autowired
     private JmsTemplate jmsTemplate;
@@ -45,6 +45,8 @@ public class SendEmailServiceTest {
         for test receiveMessage
          */
         jmsTemplate.convertAndSend(queue, blobMassage);
+
+        Mockito.when(sendEmailService.sendEmail(blobMassage)).thenReturn(true);
     }
 
     /*
@@ -60,6 +62,6 @@ public class SendEmailServiceTest {
      */
     @Test
     public void testSendEmail() {
-        Assert.assertTrue(sendEmailService.sendEmail(blobMassage) == true);
+        Assert.assertTrue(sendEmailService.sendEmail(blobMassage));
     }
 }
